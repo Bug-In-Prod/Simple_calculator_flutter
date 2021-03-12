@@ -78,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
 ),
                 textAlign: TextAlign.right,
                 controller: textControllerResult,
+                key: Key("resultField"),
                 onTap: () {
                   FocusScope.of(context).requestFocus(new FocusNode());
                   // ClipboardManager.copyToClipBoard(textControllerResult.text).then((result) {
@@ -130,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 10.0,)],),
     );
   }
+
   Widget btn(btntext, Color btnColor) {
     return Container(
       padding: EdgeInsets.only(bottom: 10.0),
@@ -139,6 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
               fontSize: 28.0, color: Colors.black, fontFamily: 'RobotoMono'),
         ),
+        key: Key("btn_$btntext"),
         onPressed: () {
           setState(() {
             textControllerInput.text = textControllerInput.text + btntext;
@@ -157,6 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.only(bottom: 10.0),
       child: FlatButton(
         child: Icon(Icons.backspace, size: 35, color: Colors.blueGrey),
+        key: Key("btnClear"),
         onPressed: () {
           textControllerInput.text = (textControllerInput.text.length > 0)
               ? (textControllerInput.text
@@ -179,6 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
               fontSize: 28.0, color: Colors.black, fontFamily: 'RobotoMono'),
         ),
+        key: Key("btnAc"),
         onPressed: () {
           setState(() {
             textControllerInput.text = "";
@@ -196,6 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return GradientButton(
       child: Text(
         btnText,
+        key: Key("btn_$btnText"),
         style: TextStyle(fontSize: 35.0),
       ),
       increaseWidthBy: 40.0,
